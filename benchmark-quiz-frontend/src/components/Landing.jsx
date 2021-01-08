@@ -8,7 +8,9 @@ function Landing() {
       <h1 className="animate__animated animate__backInLeft">
         WELCOME TO YOUR FIRST BENCHMARK
       </h1>
-      <Registration />
+      <div className="animate__animated animate__backInRight">
+        <Registration />
+      </div>
     </div>
   );
 }

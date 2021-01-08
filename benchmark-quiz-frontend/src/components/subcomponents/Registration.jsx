@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import FilledInput from "@material-ui/core/FilledInput";
+
 import FormControl from "@material-ui/core/FormControl";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import Input from "@material-ui/core/Input";
+
 import InputLabel from "@material-ui/core/InputLabel";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 
 function Registration() {
-  const [name, setName] = useState("Composed TextField");
-  const classes = useStyles();
+  const [name, setName] = useState("Enter your name");
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,6 +17,7 @@ function Registration() {
       },
     },
   }));
+  const classes = useStyles();
 
   const handleChange = (event) => {
     setName(event.target.value);
