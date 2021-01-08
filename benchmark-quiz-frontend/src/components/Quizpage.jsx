@@ -1,7 +1,7 @@
 import React from "react";
 import "./Quizpage.css";
 
-function Quiz() {
+export default function Quiz() {
   return (
     <div className="quiz_page">
       <div className="quiz_question">
@@ -30,5 +30,3 @@ function Quiz() {
     </div>
   );
 }
-
-export default Quiz;
