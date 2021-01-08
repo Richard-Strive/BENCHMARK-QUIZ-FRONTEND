@@ -27,6 +27,8 @@
   width: 40%;
   align-items: center;
   justify-content: center;
+  cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/happy.png"),
+    auto;
 }
 
 .question_one:hover,
@@ -36,14 +38,13 @@
 .question_one:active,
 .question_two:active {
   background-color: #54f2d3;
+  transform: translate(0px, -5px);
 }
 
 p {
   font-family: Copperplate;
   font-size: 35px;
   color: #32322c;
-  cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/happy.png"),
-    auto;
 }
 
 /* https: ; //s3-us-west-2.amazonaws.com/s.cdpn.io/9632/sad.png */
