@@ -2,6 +2,7 @@
   background-color: #39a0ed;
   height: 100vh;
   width: 100%;
+  cursor: pointer;
 }
 .quiz_question {
   padding-top: 30px;
@@ -41,4 +42,8 @@ p {
   font-family: Copperplate;
   font-size: 35px;
   color: #32322c;
+  cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/happy.png"),
+    auto;
 }
+
+/* https: ; //s3-us-west-2.amazonaws.com/s.cdpn.io/9632/sad.png */
