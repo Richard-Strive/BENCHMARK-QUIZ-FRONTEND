@@ -1,0 +1,14 @@
+h1 {
+  color: #32322c;
+  font-size: 60px;
+  font-family: Copperplate;
+}
+
+.landing_page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #36f1cd;
+  height: 100vh;
+  width: 100vw;
+}
