@@ -4,6 +4,8 @@ import "./Endingpage.css";
 import Confetti from "react-confetti";
 
 function Endingpage() {
+
+  
   //   const { width, height } = useWindowSize();
   return (
     <div className="endingpage">
