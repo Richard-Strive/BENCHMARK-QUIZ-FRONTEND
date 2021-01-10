@@ -12,7 +12,7 @@ export default function Quiz({ id }) {
 
   const getQuiz = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/exam/${id}`, {
+      const response = await fetch(`http://localhost:5001/exam/${id}`, {
         method: "GET",
         mode: "cors",
 
@@ -35,13 +35,13 @@ export default function Quiz({ id }) {
       console.log(error);
     }
   };
-  const postAnswer = async (index) => {
+  const postAnswer = async index => {
     try {
       const answer = {
         providedAnswer: index,
       };
 
-      const response = await fetch(`http://localhost:5000/exam/${id}/answer`, {
+      const response = await fetch(`http://localhost:5001/exam/${id}/answer`, {
         method: "POST",
         mode: "cors",
 
@@ -65,40 +65,34 @@ export default function Quiz({ id }) {
     }
   };
 
-  // useEffect(() => {
-  //   getQuiz();
-  // }, [quiz]);
+  useEffect(() => {
+    getQuiz();
+  }, []);
 
   return (
-    <>
-      {!quiz ? (
-        "LOADING"
-      ) : (
-        <div className="quiz_page">
-          <div className="quiz_question">
-            <h1 className="animate__animated animate__backInDown title">
-              {/* {`${quiz.questions[0].text}`} */}
-            </h1>
-          </div>
-          <div className="quiz_row">
-            <div className="question_one" onClick={getQuiz()}>
-              {/* <p>{`${quiz.questions[0].answers[0].text}`}</p> */}
-            </div>
-            <div className="question_two" onClick={() => postAnswer(2)}>
-              {/* <p>{`${quiz.questions[0].answers[1].text}`}</p> */}
-            </div>
-          </div>
-          <div className="quiz_row">
-            <div className="question_one" onClick={() => postAnswer(3)}>
-              {/* <p>{`${quiz.questions[0].answers[2].text}`}</p> */}
-            </div>
-            <div className="question_two" onClick={() => postAnswer(4)}>
-              {" "}
-              {/* <p>{`${quiz.questions[0].answers[3].text}`}</p> */}
-            </div>
-          </div>
+    <div className="quiz_page">
+      <div className="quiz_question">
+        <h1 className="animate__animated animate__backInDown title">
+          {quiz ? `${quiz.questions[0].text}` : "LOADING"}
+        </h1>
+      </div>
+      <div className="quiz_row">
+        <div className="question_one" onClick={() => getQuiz()}>
+          {/* <p>{`${quiz.questions[0].answers[0].text}`}</p> */}
         </div>
-      )}
-    </>
+        <div className="question_two" onClick={() => postAnswer(2)}>
+          {/* <p>{`${quiz.questions[0].answers[1].text}`}</p> */}
+        </div>
+      </div>
+      <div className="quiz_row">
+        <div className="question_one" onClick={() => postAnswer(3)}>
+          {/* <p>{`${quiz.questions[0].answers[2].text}`}</p> */}
+        </div>
+        <div className="question_two" onClick={() => postAnswer(4)}>
+          {" "}
+          {/* <p>{`${quiz.questions[0].answers[3].text}`}</p> */}
+        </div>
+      </div>
+    </div>
   );
 }

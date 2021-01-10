@@ -13,7 +13,7 @@ function Registration({ parentCallback2 }) {
   const [name, setName] = useState("");
   const [data, setData] = useState([]);
 
-  const useStyles = makeStyles((theme) => ({
+  const useStyles = makeStyles(theme => ({
     root: {
       "& > *": {
         margin: theme.spacing(1),
@@ -22,7 +22,7 @@ function Registration({ parentCallback2 }) {
   }));
   const classes = useStyles();
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setName(event.target.value);
     console.log(candidate);
   };
@@ -31,7 +31,7 @@ function Registration({ parentCallback2 }) {
     candidateName: name,
   };
 
-  const url = "http://localhost:5000/exam/start/";
+  const url = "http://localhost:5001/exam/start/";
 
   const handlePost = async () => {
     try {
