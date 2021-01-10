@@ -67,7 +67,7 @@ export default function Quiz({ id }) {
 
   useEffect(() => {
     getQuiz();
-  }, [quiz]);
+  });
 
   return (
     <div className="quiz_page">
@@ -81,16 +81,15 @@ export default function Quiz({ id }) {
           <p>{quiz ? `${quiz.questions[0].answers[0].text}` : "LOADING"}</p>
         </div>
         <div className="question_two" onClick={() => postAnswer(2)}>
-          {/* <p>{`${quiz.questions[0].answers[1].text}`}</p> */}
+          <p>{quiz ? `${quiz.questions[0].answers[1].text}` : "LOADING"}</p>
         </div>
       </div>
       <div className="quiz_row">
         <div className="question_one" onClick={() => postAnswer(3)}>
-          {/* <p>{`${quiz.questions[0].answers[2].text}`}</p> */}
+          <p>{quiz ? `${quiz.questions[0].answers[2].text}` : "LOADING"}</p>
         </div>
         <div className="question_two" onClick={() => postAnswer(4)}>
-          {" "}
-          {/* <p>{`${quiz.questions[0].answers[3].text}`}</p> */}
+          <p>{quiz ? `${quiz.questions[0].answers[3].text}` : "LOADING"}</p>
         </div>
       </div>
     </div>
