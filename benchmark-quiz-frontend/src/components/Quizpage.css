@@ -41,6 +41,10 @@
   transform: translate(0px, -5px);
 }
 
+.title {
+  font-size: 20px;
+}
+
 p {
   font-family: Copperplate;
   font-size: 35px;
