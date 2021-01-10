@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./Quizpage.css";
 
 export default function Quiz({ id }) {
-  const [quiz, setQuiz] = useState([]);
+  const [quiz, setQuiz] = useState();
 
   const quest = {
     providedAnswer: 1,
@@ -30,7 +30,7 @@ export default function Quiz({ id }) {
         setQuiz(data);
       }
 
-      console.log(await response.json());
+      console.log(await response.json([]));
     } catch (error) {
       console.log(error);
     }
@@ -65,40 +65,34 @@ export default function Quiz({ id }) {
     }
   };
 
-  // useEffect(() => {
-  //   getQuiz();
-  // }, [quiz]);
+  useEffect(() => {
+    getQuiz();
+  }, [quiz]);
 
   return (
-    <>
-      {!quiz ? (
-        "LOADING"
-      ) : (
-        <div className="quiz_page">
-          <div className="quiz_question">
-            <h1 className="animate__animated animate__backInDown title">
-              {/* {`${quiz.questions[0].text}`} */}
-            </h1>
-          </div>
-          <div className="quiz_row">
-            <div className="question_one" onClick={getQuiz()}>
-              {/* <p>{`${quiz.questions[0].answers[0].text}`}</p> */}
-            </div>
-            <div className="question_two" onClick={() => postAnswer(2)}>
-              {/* <p>{`${quiz.questions[0].answers[1].text}`}</p> */}
-            </div>
-          </div>
-          <div className="quiz_row">
-            <div className="question_one" onClick={() => postAnswer(3)}>
-              {/* <p>{`${quiz.questions[0].answers[2].text}`}</p> */}
-            </div>
-            <div className="question_two" onClick={() => postAnswer(4)}>
-              {" "}
-              {/* <p>{`${quiz.questions[0].answers[3].text}`}</p> */}
-            </div>
-          </div>
+    <div className="quiz_page">
+      <div className="quiz_question">
+        <h1 className="animate__animated animate__backInDown title">
+          {quiz ? `${quiz.questions[0].text}` : "LOADING"}
+        </h1>
+      </div>
+      <div className="quiz_row">
+        <div className="question_one" onClick={() => postAnswer(1)}>
+          <p>{quiz ? `${quiz.questions[0].answers[0].text}` : "LOADING"}</p>
         </div>
-      )}
-    </>
+        <div className="question_two" onClick={() => postAnswer(2)}>
+          {/* <p>{`${quiz.questions[0].answers[1].text}`}</p> */}
+        </div>
+      </div>
+      <div className="quiz_row">
+        <div className="question_one" onClick={() => postAnswer(3)}>
+          {/* <p>{`${quiz.questions[0].answers[2].text}`}</p> */}
+        </div>
+        <div className="question_two" onClick={() => postAnswer(4)}>
+          {" "}
+          {/* <p>{`${quiz.questions[0].answers[3].text}`}</p> */}
+        </div>
+      </div>
+    </div>
   );
 }
